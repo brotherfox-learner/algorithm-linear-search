@@ -22,6 +22,37 @@ const products = [
   { name: "Backpack", quantity: 12, zone: "G4" },
 ];
 
+//Case 1 มี name , quantity พอ
+//Case 2 มี name , quantity ไม่พอ
+//Case 3 ไม่มี name
+
+const findIfProductsAvailable = (products, targetProduct, targetQuantity) => {
+  for (let i = 0; i < products.length; i++) {
+    if (products[i]["name"] === targetProduct) {
+      let msg =
+        products[i]["quantity"] >= targetQuantity
+          ? ` ${targetQuantity} ${targetProduct}(s) are available at Zone ${products[i].zone}`
+          : `Sorry, we've got only ${products[i]["quantity"]} ${products[i]["name"]}(s) available at Zone ${products[i].zone}`;
+      return msg;
+    }
+  }
+  return `We don't have ${targetProduct}`;
+};
+
+//Handle more Edge Cases : upper-lower case, trim,
+// const findIfProductsAvailable2 = (products, targetProduct, targetQuantity) => {
+//     for (let i = 0; i < products.length; i++) {
+//       if (products[i]["name"].trim().toUpperCase() === targetProduct.trim().toUpperCase()) {
+//         let msg =
+//           products[i]["quantity"] >= targetQuantity
+//             ? ` ${products[i].quantity} ${products[i].name}(s) are available at Zone ${products[i].zone}`
+//             : `Sorry, we've got only ${products[i]["quantity"]} ${products[i]["name"]}(s) available at Zone ${products[i].zone}`;
+//         return msg;
+//       }
+//     }
+//     return `We don't have ${targetProduct}`;
+//   };
+
 console.log(findIfProductsAvailable(products, "Chocolate Milk", 3));
 // 3 Chocolate Milk(s) are available at Zone A1
 
