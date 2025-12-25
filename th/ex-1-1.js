@@ -10,6 +10,9 @@
 */
 
 //.map .filter .reduce ใช่ Linear Search ไหม
+// - map filter reduce คล้ายกับ Linear Search แต่ไม่ใช่ 100% หลักการทำงานหลักคือวนลูปทีละตัวเหมือนกัน ต่างกันตรง Linear Search เมื่อเจอค่าที่ต้องการปุ้บจะหยุด Loop เลย เช่นมี Array ชื่อคน ['Peach','John','Wind','Palm'] แล้วเรา excute array.indexOf('John) เมื่อ วนลูปไปทีละสมาชิกแล้วเจอชื่อ John Loop จะหยุดไม่ไปต่อ และ return ออกมาเป็น index แต่  map filter reduce ถึงเราจะเขียน condition check แล้วมันเจอตัวที่ต้องการเช่น array.filter(name=>name==='John') Loop ยังคงวนต่อไป จนครบสมาชิกทุกตัวใน Array จึงจะหยุด Loop และ return ออกมา
+
+//.indexOf(value) , findIndex(CB) เป็น Linear Search เพราะหลักการทำงานคือหาทีละตัว เมื่อเจอแล้ว จะหยุด loop แล้ว return ออกมาเลย
 
 // Start coding here
 const findNumberIndex = (numbers, targetNumber) =>{
@@ -24,7 +27,6 @@ const findNumberIndex2 = (numbers, targetNumber) =>{
     }
     return -1
 }
-
 
 const numbers1 = [10, 30, 5, 20, 55];
 console.log(findNumberIndex2(numbers1, 55)); // 4
